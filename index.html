@@ -1033,15 +1033,56 @@ storyNext.addEventListener(
 
                     photoReveal.classList.add("hidden");
 
-                    finalQuestion.classList.remove("hidden");
+finalQuestion.classList.remove("hidden");
 
-                    /*
-                       START FINAL SONG
-                    */
+createHearts(30);
 
-                    playMusic(finalMusic);
+/*
+   START FINAL SONG
+*/
 
-                    createHearts(30);
+finalMusic.currentTime = 0;
+finalMusic.volume = 0.85;
+
+finalMusic.play()
+    .then(function () {
+        console.log("❤️ FINAL SONG PLAYING");
+    })
+    .catch(function (error) {
+
+        console.log(
+            "⚠️ Final song autoplay blocked:",
+            error
+        );
+
+        const startFinalSong = function () {
+
+            finalMusic.play()
+                .then(function () {
+                    console.log("❤️ FINAL SONG STARTED");
+                })
+                .catch(function (err) {
+                    console.log(
+                        "❌ FINAL SONG ERROR:",
+                        err
+                    );
+                });
+
+        };
+
+        document.addEventListener(
+            "touchstart",
+            startFinalSong,
+            { once: true }
+        );
+
+        document.addEventListener(
+            "click",
+            startFinalSong,
+            { once: true }
+        );
+
+    });
 
                 },
                 11500
