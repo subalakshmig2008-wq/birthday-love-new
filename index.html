@@ -1,0 +1,1245 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+    background:#08000b;
+    color:white;
+}
+
+/* COMMON PAGE */
+
+.page{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    animation:floatHeart linear infinite;
+    opacity:.8;
+    pointer-events:none;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* OPENING */
+
+#opening{
+    background:
+    radial-gradient(circle at center,#5b073b,#18000f 55%,#050005);
+}
+
+.open-box{
+    width:90%;
+    max-width:700px;
+    padding:35px 20px;
+    animation:fadeIn 2s ease;
+}
+
+.big-heart{
+    font-size:90px;
+    animation:heartbeat 1.3s infinite;
+    margin-bottom:15px;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+.birthday-title{
+    font-size:clamp(42px,10vw,85px);
+    font-weight:bold;
+    letter-spacing:4px;
+    text-shadow:0 0 25px #ff4d9d;
+}
+
+.name-title{
+    font-size:clamp(22px,5vw,40px);
+    margin:15px 0;
+    color:#ffb6d9;
+}
+
+.open-text{
+    font-size:clamp(18px,4vw,26px);
+    margin:20px 0 30px;
+}
+
+.main-btn{
+    border:none;
+    padding:16px 35px;
+    border-radius:40px;
+    font-size:18px;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(135deg,#ff2f92,#8e2de2);
+    box-shadow:0 0 25px rgba(255,47,146,.5);
+    transition:.3s;
+}
+
+.main-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 40px rgba(255,47,146,.8);
+}
+
+/* SURPRISE */
+
+#surprise{
+    background:
+    radial-gradient(circle,#4d0733,#12000d);
+    flex-direction:column;
+}
+
+.surprise-title{
+    font-size:clamp(28px,6vw,55px);
+    margin-bottom:35px;
+}
+
+.envelope{
+    font-size:120px;
+    cursor:pointer;
+    animation:envelopeFloat 2s infinite ease-in-out;
+}
+
+@keyframes envelopeFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+.click-text{
+    margin-top:20px;
+    font-size:20px;
+    color:#ffb6d9;
+}
+
+/* LETTER */
+
+#letterArea{
+    background:linear-gradient(135deg,#260018,#09000d);
+    padding:20px;
+}
+
+.letter-card{
+    width:92%;
+    max-width:700px;
+    max-height:75vh;
+    overflow-y:auto;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 35px rgba(255,50,150,.25);
+    text-align:left;
+}
+
+.letter-card h1{
+    text-align:center;
+    color:#ff91c6;
+    margin-bottom:25px;
+}
+
+.letter-card p{
+    font-size:17px;
+    line-height:1.9;
+    color:#fff0f7;
+}
+
+.continue-box{
+    margin-top:25px;
+    text-align:center;
+}
+
+/* STORY */
+
+#storyPage{
+    background:#050006;
+    flex-direction:column;
+    padding:20px;
+}
+
+.story-container{
+    width:100%;
+    max-width:650px;
+}
+
+.story-photo{
+    width:100%;
+    max-height:60vh;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 0 35px rgba(255,50,150,.5);
+    animation:photoAppear 1s ease;
+}
+
+@keyframes photoAppear{
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.story-title{
+    margin:20px 0;
+    font-size:clamp(25px,6vw,45px);
+    color:#ff9dcc;
+}
+
+.story-counter{
+    color:#aaa;
+    margin-bottom:15px;
+}
+
+.story-btn{
+    margin-top:10px;
+}
+
+/* PHOTO REVEAL */
+
+#photoReveal{
+    background:
+    radial-gradient(circle,#5c003d,#080008);
+    flex-direction:column;
+    padding:20px;
+}
+
+.reveal-photo{
+    width:min(80vw,420px);
+    height:min(80vw,420px);
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #ff7dbb;
+    box-shadow:
+        0 0 25px #ff4fa3,
+        0 0 70px rgba(255,0,130,.5);
+    animation:photoZoom 2s ease;
+}
+
+@keyframes photoZoom{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.reveal-text{
+    margin-top:30px;
+}
+
+.line{
+    font-size:clamp(25px,7vw,55px);
+    font-weight:bold;
+    margin:10px 0;
+    opacity:0;
+    animation:textShow 1.5s forwards;
+}
+
+.line:nth-child(1){
+    animation-delay:1s;
+}
+
+.line:nth-child(2){
+    animation-delay:3s;
+}
+
+.line:nth-child(3){
+    animation-delay:5s;
+}
+
+.line:nth-child(4){
+    animation-delay:7s;
+}
+
+@keyframes textShow{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.person{
+    color:#ff83bd;
+}
+
+.everything{
+    color:#ffb7da;
+}
+
+/* QUESTION */
+
+#finalQuestion{
+    background:
+    radial-gradient(circle,#4c0735,#090009);
+    flex-direction:column;
+    padding:25px;
+}
+
+.question-title{
+    font-size:clamp(32px,8vw,65px);
+    margin-bottom:20px;
+}
+
+.question-sub{
+    font-size:20px;
+    margin-bottom:40px;
+    color:#ffc4df;
+}
+
+.answer-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.answer-btn{
+    border:none;
+    padding:18px 40px;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(135deg,#ff2d91,#9b30ff);
+    box-shadow:0 0 25px rgba(255,45,145,.5);
+    transition:.3s;
+}
+
+.answer-btn:hover{
+    transform:scale(1.12);
+}
+
+/* FINAL MESSAGE */
+
+#finalMessage{
+    background:
+    radial-gradient(circle,#720044,#16000e);
+    flex-direction:column;
+}
+
+.kiss{
+    font-size:90px;
+    animation:kiss 1.5s infinite;
+}
+
+@keyframes kiss{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.25);
+    }
+}
+
+.final-message-title{
+    font-size:clamp(35px,8vw,70px);
+    margin:15px;
+}
+
+.final-message-text{
+    font-size:clamp(22px,5vw,35px);
+    color:#ffb7d8;
+}
+
+/* BYE */
+
+#byePage{
+    background:
+    radial-gradient(circle,#390027,#050005);
+    flex-direction:column;
+}
+
+.bye-title{
+    font-size:clamp(45px,12vw,100px);
+    color:#ff8fc4;
+    text-shadow:0 0 30px #ff2f91;
+}
+
+.bye-text{
+    margin-top:25px;
+    font-size:clamp(18px,5vw,28px);
+    color:#ffd3e7;
+}
+
+/* FADE */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .letter-card{
+        padding:22px;
+    }
+
+    .letter-card p{
+        font-size:15px;
+        line-height:1.8;
+    }
+
+    .story-photo{
+        max-height:52vh;
+    }
+
+    .answer-btn{
+        width:180px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= AUDIO ================= -->
+
+<audio id="mainMusic" preload="auto">
+    <source src="./song/song.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="storyMusic" preload="auto">
+    <source src="./song/storySong.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="photoMusic" preload="auto">
+    <source src="./song/photoSong.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="finalMusic" preload="auto">
+    <source src="./song/finalSong.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ================= OPENING ================= -->
+
+<section id="opening" class="page">
+
+    <div class="open-box">
+
+        <div class="big-heart">❤️</div>
+
+        <div class="birthday-title">
+            HAPPY BIRTHDAY
+        </div>
+
+        <div class="name-title">
+            My Paithiyakara 🥹❤️
+        </div>
+
+        <div class="open-text">
+            I Made Something Special For You ❤️
+        </div>
+
+        <button class="main-btn" id="openSurprise">
+            💗 Open Your Surprise
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SURPRISE ================= -->
+
+<section id="surprise" class="page hidden">
+
+    <h1 class="surprise-title">
+        I have something to tell you... ❤️
+    </h1>
+
+    <div class="envelope" id="envelope">
+        💌
+    </div>
+
+    <div class="click-text">
+        Click Me
+    </div>
+
+</section>
+
+
+<!-- ================= LETTER ================= -->
+
+<section id="letterArea" class="page hidden">
+
+    <div class="letter-card">
+
+        <h1>
+            Hey Alagiii...❤️
+        </h1>
+
+        <p>
+
+        Nee enaku kedachathuku naa nejamave kuduthu vachurukanum. ❤️
+        <br><br>
+
+        Nee enkuda irundhalum seri, illanalum seri… enaku eppavum nee pudicha paiyan dha.
+        <br><br>
+
+        Unakkana place en manasula eppavum irukum. ❤️
+        <br><br>
+
+        Onaku naa ipo epdi nu la theriyala… but nee enaku eppavum oru special person dha.
+        <br><br>
+
+        Because nee enaku kedacha oru precious gift. 🥹❤️
+        <br><br>
+
+        Unna en life-la meet pannadhu, Nee enaku kedachadhu… idhellam naa nijamave romba lucky-ah feel panren.
+        <br><br>
+
+        Nee enkuda irundhalum, illanalum, unakkana andha special place mattum eppavum maaradhu.
+        <br><br>
+
+        I always love you. ❤️
+        <br><br>
+
+        No matter what happens… Nee eppavum enaku special dha tha da Ennoda Paithiyamey...❤️
+
+        </p>
+
+        <div class="continue-box">
+
+            <button class="main-btn" id="continueBtn">
+                Continue ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section id="storyPage" class="page hidden">
+
+    <div class="story-container">
+
+        <div class="story-counter" id="storyCounter">
+            varamey
+        </div>
+
+        <img
+            id="storyImage"
+            class="story-photo"
+            src="./photos/photo1.jpg"
+            alt="Our Story"
+        >
+
+        <h1
+            id="storyTitle"
+            class="story-title"
+        >
+            That First Moment ❤️
+        </h1>
+
+        <button
+            id="storyNext"
+            class="main-btn story-btn"
+        >
+            Next ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PHOTO REVEAL ================= -->
+
+<section id="photoReveal" class="page hidden">
+
+    <img
+        src="./photos/hisphoto.jpg"
+        class="reveal-photo"
+        alt="My Person"
+    >
+
+    <div class="reveal-text">
+
+        <div class="line">
+            YOU ARE MY
+        </div>
+
+        <div class="line person">
+            PERSON. ❤️
+        </div>
+
+        <div class="line">
+            BUT MORE THAN THAT…
+        </div>
+
+        <div class="line everything">
+            YOU ARE MY EVERYTHING. 🥹❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINAL QUESTION ================= -->
+
+<section id="finalQuestion" class="page hidden">
+
+    <div class="question-title">
+        One last question…
+    </div>
+
+    <div class="question-sub">
+        Will you stay with me? 🥹❤️
+    </div>
+
+    <div class="answer-buttons">
+
+        <button
+            class="answer-btn"
+            id="yesBtn"
+        >
+            YES ❤️
+        </button>
+
+        <button
+            class="answer-btn"
+            id="alwaysBtn"
+        >
+            ALWAYS 🫶
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINAL MESSAGE ================= -->
+
+<section id="finalMessage" class="page hidden">
+
+    <div class="kiss">
+        💋
+    </div>
+
+    <div class="final-message-title">
+        You chose me… 🥹❤️
+    </div>
+
+    <div class="final-message-text">
+        Come here…<br>
+        Ummaaaaaa💋❤️
+    </div>
+
+</section>
+
+
+<!-- ================= BYE ================= -->
+
+<section id="byePage" class="page hidden">
+
+    <div class="bye-title">
+        LOVE YOU ❤️
+    </div>
+
+    <div class="bye-text">
+        Happy Birthday,da Paithiyakara! 🫶❤️
+        <br><br>
+        BYE tata 👋
+        <br><br>
+        Take care, thanga maileyy... 🥹❤️
+    </div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   GET ELEMENTS
+===================================================== */
+
+const opening = document.getElementById("opening");
+const surprise = document.getElementById("surprise");
+const letterArea = document.getElementById("letterArea");
+const storyPage = document.getElementById("storyPage");
+const photoReveal = document.getElementById("photoReveal");
+const finalQuestion = document.getElementById("finalQuestion");
+const finalMessage = document.getElementById("finalMessage");
+const byePage = document.getElementById("byePage");
+
+const openSurprise = document.getElementById("openSurprise");
+const envelope = document.getElementById("envelope");
+const continueBtn = document.getElementById("continueBtn");
+const storyNext = document.getElementById("storyNext");
+const yesBtn = document.getElementById("yesBtn");
+const alwaysBtn = document.getElementById("alwaysBtn");
+
+const storyImage = document.getElementById("storyImage");
+const storyTitle = document.getElementById("storyTitle");
+const storyCounter = document.getElementById("storyCounter");
+
+
+/* =====================================================
+   AUDIO
+===================================================== */
+
+const mainMusic = document.getElementById("mainMusic");
+const storyMusic = document.getElementById("storyMusic");
+const photoMusic = document.getElementById("photoMusic");
+const finalMusic = document.getElementById("finalMusic");
+
+
+/* =====================================================
+   STOP ALL MUSIC
+===================================================== */
+
+function stopAllMusic(){
+
+    mainMusic.pause();
+    mainMusic.currentTime = 0;
+
+    storyMusic.pause();
+    storyMusic.currentTime = 0;
+
+    photoMusic.pause();
+    photoMusic.currentTime = 0;
+
+    finalMusic.pause();
+    finalMusic.currentTime = 0;
+}
+
+
+/* =====================================================
+   PLAY MUSIC
+===================================================== */
+
+function playMusic(music){
+
+    stopAllMusic();
+
+    music.currentTime = 0;
+    music.volume = 0.85;
+
+    const promise = music.play();
+
+    if(promise !== undefined){
+
+        promise
+        .then(function(){
+
+            console.log(
+                "Playing:",
+                music.currentSrc
+            );
+
+        })
+        .catch(function(error){
+
+            console.error(
+                "Music could not play:",
+                error
+            );
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   AUDIO ERROR CHECK
+===================================================== */
+
+[
+    mainMusic,
+    storyMusic,
+    photoMusic,
+    finalMusic
+].forEach(function(audio){
+
+    audio.addEventListener(
+        "error",
+        function(){
+
+            console.error(
+                "AUDIO ERROR:",
+                audio.currentSrc,
+                audio.error
+            );
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   OPEN SURPRISE
+===================================================== */
+
+openSurprise.addEventListener(
+    "click",
+    function(){
+
+        opening.classList.add("hidden");
+
+        surprise.classList.remove("hidden");
+
+        /*
+           IMPORTANT:
+           This click is a user interaction.
+           So browser allows song.mp3 to play.
+        */
+
+        playMusic(mainMusic);
+
+        createHearts(25);
+
+    }
+);
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+envelope.addEventListener(
+    "click",
+    function(){
+
+        surprise.classList.add("hidden");
+
+        letterArea.classList.remove("hidden");
+
+        createHearts(20);
+
+    }
+);
+
+
+/* =====================================================
+   CONTINUE
+===================================================== */
+
+continueBtn.addEventListener(
+    "click",
+    function(){
+
+        /*
+           STOP HAPPY BIRTHDAY SONG
+        */
+
+        mainMusic.pause();
+        mainMusic.currentTime = 0;
+
+        letterArea.classList.add("hidden");
+
+        storyPage.classList.remove("hidden");
+
+        currentScene = 1;
+
+        showScene(1);
+
+        /*
+           START STORY SONG
+        */
+
+        playMusic(storyMusic);
+
+        createHearts(20);
+
+    }
+);
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+let currentScene = 1;
+
+const scenes = [
+
+    {
+        image:"./photos/photo1.jpg",
+        title:"That First Moment ❤️"
+    },
+
+    {
+        image:"./photos/photo2.jpg",
+        title:"You Became Special ❤️"
+    },
+
+    {
+        image:"./photos/photo3.jpg",
+        title:"Always Special ❤️"
+    }
+
+];
+
+
+function showScene(number){
+
+    const scene = scenes[number - 1];
+
+    storyImage.style.opacity = "0";
+
+    setTimeout(function(){
+
+        storyImage.src = scene.image;
+
+        storyTitle.innerText = scene.title;
+
+        storyCounter.innerText =
+            number + " / " + scenes.length;
+
+        storyImage.style.opacity = "1";
+
+    },300);
+
+
+    if(number === scenes.length){
+
+        storyNext.innerText =
+            "Continue ❤️";
+
+    }
+    else{
+
+        storyNext.innerText =
+            "Next ❤️";
+
+    }
+
+}
+
+
+/* =====================================================
+   STORY NEXT
+===================================================== */
+
+storyNext.addEventListener(
+    "click",
+    function(){
+
+        if(currentScene < scenes.length){
+
+            currentScene++;
+
+            showScene(currentScene);
+
+        }
+        else{
+
+            /*
+               STOP STORY SONG
+            */
+
+            storyMusic.pause();
+            storyMusic.currentTime = 0;
+
+            storyPage.classList.add("hidden");
+
+            photoReveal.classList.remove("hidden");
+
+            /*
+               START PHOTO SONG
+            */
+
+            playMusic(photoMusic);
+
+            createHearts(35);
+
+            /*
+               PHOTO REVEAL DURATION
+               11.5 seconds
+            */
+
+            setTimeout(
+                function(){
+
+                    photoMusic.pause();
+                    photoMusic.currentTime = 0;
+
+                    photoReveal.classList.add("hidden");
+
+                    finalQuestion.classList.remove("hidden");
+
+                    /*
+                       START FINAL SONG
+                    */
+
+                    playMusic(finalMusic);
+
+                    createHearts(30);
+
+                },
+                11500
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   YES / ALWAYS
+===================================================== */
+
+yesBtn.addEventListener(
+    "click",
+    function(){
+
+        chooseAnswer("YES ❤️");
+
+    }
+);
+
+alwaysBtn.addEventListener(
+    "click",
+    function(){
+
+        chooseAnswer("ALWAYS 🫶");
+
+    }
+);
+
+
+/* =====================================================
+   FINAL ANSWER
+===================================================== */
+
+function chooseAnswer(answer){
+
+    localStorage.setItem(
+        "birthdayAnswer",
+        answer
+    );
+
+    finalQuestion.classList.add("hidden");
+
+    finalMessage.classList.remove("hidden");
+
+    createHearts(60);
+
+    createKisses(25);
+
+
+    /*
+       SHOW FINAL MESSAGE FOR 5 SECONDS
+    */
+
+    setTimeout(
+        function(){
+
+            finalMessage.classList.add("hidden");
+
+            byePage.classList.remove("hidden");
+
+            createHearts(80);
+
+            createKisses(40);
+
+
+            /*
+               STOP FINAL SONG AFTER BYE PAGE
+            */
+
+            setTimeout(
+                function(){
+
+                    finalMusic.pause();
+
+                    finalMusic.currentTime = 0;
+
+                },
+                7000
+            );
+
+        },
+        5000
+    );
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHearts(count){
+
+    for(let i = 0; i < count; i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            ["❤️","💗","💖","💕","💓"]
+            [
+                Math.floor(
+                    Math.random() * 5
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 6) + "s";
+
+        heart.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(
+            function(){
+
+                heart.remove();
+
+            },
+            12000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   KISS EFFECT
+===================================================== */
+
+function createKisses(count){
+
+    for(let i = 0; i < count; i++){
+
+        const kiss =
+            document.createElement("div");
+
+        kiss.innerHTML = "💋";
+
+        kiss.style.position = "absolute";
+
+        kiss.style.left =
+            Math.random() * 100 + "%";
+
+        kiss.style.bottom = "-40px";
+
+        kiss.style.fontSize =
+            (20 + Math.random() * 25) + "px";
+
+        kiss.style.animation =
+            "floatHeart " +
+            (5 + Math.random() * 4) +
+            "s linear";
+
+        kiss.style.pointerEvents =
+            "none";
+
+        document.body.appendChild(kiss);
+
+
+        setTimeout(
+            function(){
+
+                kiss.remove();
+
+            },
+            10000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   INITIAL HEARTS
+===================================================== */
+
+createHearts(20);
+
+</script>
+
+</body>
+</html>
+```
